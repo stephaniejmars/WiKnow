@@ -10,8 +10,8 @@ import Foundation
 
 struct Database {
     
-    fileprivate static let namesKey = "namesKey"
-    fileprivate static let preferenceKey = "preferenceKey"
+    static let namesKey = "namesKey"
+    static let preferenceKey = "preferenceKey"
     
     
     func addWine(name: String, isLiked: Bool) {
@@ -35,7 +35,9 @@ struct Database {
         userDefaults.set(names, forKey: Database.namesKey)
         userDefaults.set(preferences, forKey: Database.preferenceKey)
         userDefaults.synchronize()
-    }
-    
+        
+        print(userDefaults.array(forKey: Database.namesKey) as Any)
+        print(userDefaults.array(forKey: Database.preferenceKey) as Any)
 
+    }
 }

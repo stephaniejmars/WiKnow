@@ -20,22 +20,62 @@ class WineDetailViewController: UIViewController {
     }
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
-    
     @IBOutlet weak var imageView: UIImageView!
 
+    
+    // could add label if wine exists in db with like
+    // add label if wine exists in db with dislike
+    
+    //compare (wine?.product_name) with db
+    
     @IBAction func dislikePressed(_ sender: Any) {
         //call db function
-        //addWine(name: "\(wine.name)", isLiked: false)
+        let dB = Database()
+        dB.addWine(name: "\(wine?.product_name)", isLiked: false)
+        
         //send alert to screen preference has been saved
+        let confirmationDislike = UIAlertController(title: ":(", message: "Sorry you didn't like it, your preference has been saved", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "Cool", style: .default) { (action) -> Void in
+            print("dislikebutton tapped")
+        }
+        
+        confirmationDislike.addAction(ok)
+        self.present(confirmationDislike, animated: true, completion: nil)
     }
     
     @IBAction func likePressed(_ sender: Any) {
         //call db function
-        //addWine(name: String, isLiked: true)
+        let dB = Database()
+        dB.addWine(name: "\(wine?.product_name)", isLiked: true)
         //send alert to screen that it has been saved
+        let confirmationLike = UIAlertController(title: "Yay!", message: "Your preference has been saved.", preferredStyle: .alert)
+            
+        let ok = UIAlertAction(title: "Awesome", style: .default) { (action) -> Void in
+            print("likebutton tapped")
+        }
+        
+        confirmationLike.addAction(ok)
+        self.present(confirmationLike, animated: true, completion: nil)
     }
     
     func updateForWine() {
+//        var stringName = Database.namesKey
+//        var preference = Database.preferenceKey
+//
+//        let userDefaults = UserDefaults.standard
+//        var names = (userDefaults.array(forKey: Database.namesKey) as? [String]) ?? [String]()
+//        var preferences = (userDefaults.array(forKey: Database.preferenceKey)) as? [Bool] ?? [Bool]()
+//        var matchFound = false
+//
+//        for (index, wineName) in names.enumerated() {
+//            if wine?.product_name == wineName {
+//
+////                preferences[index] = isLiked
+////                matchFound = true
+//            }
+//        }
+        
         nameLabel.text = wine?.product_name
         brandLabel.text = wine?.brand
         imageView.image = wine?.image
