@@ -10,34 +10,75 @@ import Foundation
 
 struct Database {
     
-    static let namesKey = "namesKey"
-    static let preferenceKey = "preferenceKey"
+    static let likedNamesKey = "likedNamesKey"
+    static let dislikedNamesKey = "dislikedNamesKey"
     
     
-    func addWine(name: String, isLiked: Bool) {
+    func addLikedWine(name: String, isLiked: Bool) {
         let userDefaults = UserDefaults.standard
-        var names = (userDefaults.array(forKey: Database.namesKey) as? [String]) ?? [String]()
-        var preferences = (userDefaults.array(forKey: Database.preferenceKey)) as? [Bool] ?? [Bool]()
+        var likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as? [String]) ?? [String]()
+
         var matchFound = false
         
-        for (index, wineName) in names.enumerated() {
+        for (index, wineName) in likedNames.enumerated() {
             if name == wineName {
-                preferences[index] = isLiked
+//                preferences[index] = isLiked
                 matchFound = true
+                print("duplicate found but liked wines list is this: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
+                return
             }
         }
         
         if matchFound == false {
-            names.append(name)
-            preferences.append(isLiked)
+            likedNames.append(name)
+
+            userDefaults.set(likedNames, forKey: Database.likedNamesKey)
+            userDefaults.synchronize()
+            
+            print("new wine added liked wines list: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
         }
         
-        userDefaults.set(names, forKey: Database.namesKey)
-        userDefaults.set(preferences, forKey: Database.preferenceKey)
-        userDefaults.synchronize()
+    }
+    
+    func addDislikedWine(name: String, isLiked: Bool) {
+        let userDefaults = UserDefaults.standard
+        var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as? [String]) ?? [String]()
+    
+        var matchFound = false
         
-        print(userDefaults.array(forKey: Database.namesKey) as Any)
-        print(userDefaults.array(forKey: Database.preferenceKey) as Any)
+        for (index, wineName) in dislikedNames.enumerated() {
+            if name == wineName {
+//                preferences[index] = isLiked
+                matchFound = true
+                print("duplicate found but disliked wines list is this: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
+            }
+        }
+        
+        if matchFound == false {
+            dislikedNames.append(name)
+            
+            userDefaults.set(dislikedNames, forKey: Database.dislikedNamesKey)
+            userDefaults.synchronize()
+            
+            print("disliked wines: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
+        }
 
+    }
+    
+    func doesExist(){
+        
+//        var matchFound = false
+//
+//        for (index, wineName) in names.enumerated() {
+//            if name == wineName {
+//                preferences[index] = isLiked
+//                matchFound = true
+//            }
+//        }
+        
+//        if matchFound == false {
+//            names.append(name)
+//            preferences.append(isLiked)
+//        }
     }
 }
