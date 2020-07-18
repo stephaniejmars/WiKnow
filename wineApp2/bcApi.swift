@@ -19,7 +19,7 @@ struct barcodeRequest {
 
     
     init(barcode:String) {
-        let resourceString = "https://api.barcodelookup.com/v2/products?barcode=\(barcode)&formatted=y&key=____"
+        let resourceString = "https://api.barcodelookup.com/v2/products?barcode=\(barcode)&formatted=y&key="
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         
         self.resourceURL = resourceURL

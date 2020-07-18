@@ -115,8 +115,8 @@ struct Database {
         let userDefaults = UserDefaults.standard
         var likedArray = userDefaults.array(forKey: Database.dislikedNamesKey)
         var dislikedArray = userDefaults.array(forKey: Database.likedNamesKey)
-        likedArray.removeAll()
-        dislikedArray.removeAll()
+        likedArray?.removeAll()
+        dislikedArray?.removeAll()
 
         userDefaults.set(likedArray, forKey: Database.likedNamesKey)
         userDefaults.set(dislikedArray, forKey: Database.dislikedNamesKey)

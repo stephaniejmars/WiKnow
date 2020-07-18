@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearDB(_ sender: Any) {
-//        Database.clearDB()
+        Database.clearDB()
     }
     
     func showWine(_ wine:Wine) {
