@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		905FB9F824BCF86200CE9B14 /* bcApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9F724BCF86200CE9B14 /* bcApi.swift */; };
 		905FB9FA24BD12DB00CE9B14 /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9F924BD12DB00CE9B14 /* Wine.swift */; };
-		905FB9FC24BD229F00CE9B14 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FB24BD229F00CE9B14 /* ApiKey.swift */; };
 		905FB9FE24BD262600CE9B14 /* WineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */; };
 		905FBA0024BE9DF900CE9B14 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FF24BE9DF900CE9B14 /* LikeButton.swift */; };
 		905FBA0224BEB81E00CE9B14 /* DislikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */; };
@@ -22,6 +21,7 @@
 		9094F80724BA7FF60050644F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9094F80524BA7FF60050644F /* Main.storyboard */; };
 		9094F80924BA80050050644F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9094F80824BA80050050644F /* Assets.xcassets */; };
 		9094F80C24BA80050050644F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9094F80A24BA80050050644F /* LaunchScreen.storyboard */; };
+		90D3A12024C3AE2800C0F714 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D3A11F24C3AE2800C0F714 /* APIKey.swift */; };
 		A8A16C915BC4CCF9358BA6D2 /* Pods_wineApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8969B701F94CA0CDFE8C3 /* Pods_wineApp2.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,6 @@
 		52F8969B701F94CA0CDFE8C3 /* Pods_wineApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wineApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		905FB9F724BCF86200CE9B14 /* bcApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bcApi.swift; sourceTree = "<group>"; };
 		905FB9F924BD12DB00CE9B14 /* Wine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
-		905FB9FB24BD229F00CE9B14 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetailViewController.swift; sourceTree = "<group>"; };
 		905FB9FF24BE9DF900CE9B14 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeButton.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		9094F80824BA80050050644F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9094F80B24BA80050050644F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9094F80D24BA80050050644F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90D3A11F24C3AE2800C0F714 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		F551DBE96C228FD746A545D0 /* Pods-wineApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wineApp2.release.xcconfig"; path = "Target Support Files/Pods-wineApp2/Pods-wineApp2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,7 @@
 				9094F80324BA7FF60050644F /* ViewController.swift */,
 				905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */,
 				905FB9F724BCF86200CE9B14 /* bcApi.swift */,
-				905FB9FB24BD229F00CE9B14 /* ApiKey.swift */,
+				90D3A11F24C3AE2800C0F714 /* APIKey.swift */,
 				905FB9F924BD12DB00CE9B14 /* Wine.swift */,
 				9094F80524BA7FF60050644F /* Main.storyboard */,
 				905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */,
@@ -240,8 +240,8 @@
 				905FB9F824BCF86200CE9B14 /* bcApi.swift in Sources */,
 				9094F80424BA7FF60050644F /* ViewController.swift in Sources */,
 				905FBA0424BF8F8200CE9B14 /* HomeButtons.swift in Sources */,
+				90D3A12024C3AE2800C0F714 /* APIKey.swift in Sources */,
 				9094F80024BA7FF60050644F /* AppDelegate.swift in Sources */,
-				905FB9FC24BD229F00CE9B14 /* ApiKey.swift in Sources */,
 				9094F80224BA7FF60050644F /* SceneDelegate.swift in Sources */,
 				905FB9FE24BD262600CE9B14 /* WineDetailViewController.swift in Sources */,
 				905FB9FA24BD12DB00CE9B14 /* Wine.swift in Sources */,
