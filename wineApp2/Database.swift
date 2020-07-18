@@ -10,8 +10,8 @@ import Foundation
 
 struct Database {
     
-    static let likedNamesKey = "likedNamesKey"
-    static let dislikedNamesKey = "dislikedNamesKey"
+    static var likedNamesKey = "likedNamesKey"
+    static var dislikedNamesKey = "dislikedNamesKey"
     
     
     func addLikedWine(name: String, isLiked: Bool) {
@@ -111,7 +111,19 @@ struct Database {
     }
     
     
+    static func clearDB() {
+        let userDefaults = UserDefaults.standard
+        var likedArray = userDefaults.array(forKey: Database.dislikedNamesKey)
+        var dislikedArray = userDefaults.array(forKey: Database.likedNamesKey)
+        likedArray.removeAll()
+        dislikedArray.removeAll()
+
+        userDefaults.set(likedArray, forKey: Database.likedNamesKey)
+        userDefaults.set(dislikedArray, forKey: Database.dislikedNamesKey)
+        userDefaults.synchronize()
+    }
     
+
     
     //end
 }

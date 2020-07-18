@@ -71,7 +71,7 @@ class WineDetailViewController: UIViewController {
         
         if prevLiked == true {
             preferenceIcon.image = heartImage
-            preferenceLabel.text = "You have tried this wine and liked it!"
+            preferenceLabel.text = "You have tried this wine and liked it! :) "
             preferenceLabel.textColor = UIColor(red: 40.00/255.00, green: 174.00/255.00, blue: 96.00/255.00, alpha: 1)
         } else if prevDisliked == true {
             preferenceIcon.image = xImage

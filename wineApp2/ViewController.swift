@@ -30,6 +30,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func clearDB(_ sender: Any) {
+//        Database.clearDB()
+    }
+    
     func showWine(_ wine:Wine) {
         DispatchQueue.main.async {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
