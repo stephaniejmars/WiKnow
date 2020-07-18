@@ -17,19 +17,16 @@ struct Database {
     func addLikedWine(name: String, isLiked: Bool) {
         let userDefaults = UserDefaults.standard
         var likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as? [String]) ?? [String]()
-
-        var matchFound = false
         
-        for (index, wineName) in likedNames.enumerated() {
-            if name == wineName {
-//                preferences[index] = isLiked
-                matchFound = true
-                print("duplicate found but liked wines list is this: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
-                return
-            }
+        let exists = Database.doesExist(name: name)
+        
+        //TODO delete:
+        if exists == true {
+            print("heyo!")
+            print("liked wines list: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
         }
         
-        if matchFound == false {
+        if exists == false {
             likedNames.append(name)
 
             userDefaults.set(likedNames, forKey: Database.likedNamesKey)
@@ -44,17 +41,15 @@ struct Database {
         let userDefaults = UserDefaults.standard
         var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as? [String]) ?? [String]()
     
-        var matchFound = false
+        let exists = Database.doesExist(name: name)
+
+        //TODO delete:
+        if exists == true {
+              print("heyo!")
+            print("disliked wines: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
+          }
         
-        for (index, wineName) in dislikedNames.enumerated() {
-            if name == wineName {
-//                preferences[index] = isLiked
-                matchFound = true
-                print("duplicate found but disliked wines list is this: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
-            }
-        }
-        
-        if matchFound == false {
+        if exists == false {
             dislikedNames.append(name)
             
             userDefaults.set(dislikedNames, forKey: Database.dislikedNamesKey)
@@ -65,20 +60,58 @@ struct Database {
 
     }
     
-    func doesExist(){
-        
-//        var matchFound = false
-//
-//        for (index, wineName) in names.enumerated() {
-//            if name == wineName {
+    static func doesExist(name: String) -> Bool {
+        let userDefaults = UserDefaults.standard
+        let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as? [String]) ?? [String]()
+        let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as? [String]) ?? [String]()
+
+        for (index, wineName) in likedNames.enumerated() {
+            if name == wineName {
 //                preferences[index] = isLiked
-//                matchFound = true
-//            }
-//        }
+                return true
+            }
+        }
+                
+        for (index, wineName) in dislikedNames.enumerated() {
+            if name == wineName {
+//                preferences[index] = isLiked
+                return true
+            }
+        }
         
-//        if matchFound == false {
-//            names.append(name)
-//            preferences.append(isLiked)
-//        }
+        return false
     }
+    
+    static func wasLiked(name: String) -> Bool {
+            let userDefaults = UserDefaults.standard
+            let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as? [String]) ?? [String]()
+           
+            for (index, wineName) in likedNames.enumerated() {
+                if name == wineName {
+    //                preferences[index] = isLiked
+                    return true
+                }
+            }
+            
+            return false
+    }
+    
+    static func wasNotLiked(name: String) -> Bool {
+            let userDefaults = UserDefaults.standard
+            let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as? [String]) ?? [String]()
+
+            for (index, wineName) in dislikedNames.enumerated() {
+                if name == wineName {
+    //                preferences[index] = isLiked
+                    return true
+                }
+            }
+            
+            return false
+    }
+    
+    
+    
+    
+    //end
 }
