@@ -45,7 +45,7 @@ struct Database {
 
         //TODO delete:
         if exists == true {
-              print("heyo!")
+            print("heyo!")
             print("disliked wines: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
           }
         
@@ -113,8 +113,8 @@ struct Database {
     
     static func clearDB() {
         let userDefaults = UserDefaults.standard
-        var likedArray = userDefaults.array(forKey: Database.dislikedNamesKey)
-        var dislikedArray = userDefaults.array(forKey: Database.likedNamesKey)
+        var likedArray = userDefaults.array(forKey: Database.likedNamesKey)
+        var dislikedArray = userDefaults.array(forKey: Database.dislikedNamesKey)
         likedArray?.removeAll()
         dislikedArray?.removeAll()
 
@@ -123,6 +123,13 @@ struct Database {
         userDefaults.synchronize()
     }
     
+    static func allLikedWines<T>() -> Array<T> {
+        let userDefaults = UserDefaults.standard
+        var likedArray = userDefaults.array(forKey: Database.likedNamesKey)
+
+        return likedArray 
+
+    }
 
     
     //end

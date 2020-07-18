@@ -27,7 +27,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func myFavsPressed(_ sender: Any) {
-        
+        let myFavsVC = MyFavsViewController()
+//        myFavsVC.codeDelegate = self
+        navigationController?.pushViewController(myFavsVC, animated: true)
     }
     
     @IBAction func clearDB(_ sender: Any) {
