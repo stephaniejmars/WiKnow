@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		905FB9F824BCF86200CE9B14 /* bcApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9F724BCF86200CE9B14 /* bcApi.swift */; };
 		905FB9FA24BD12DB00CE9B14 /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9F924BD12DB00CE9B14 /* Wine.swift */; };
-		905FB9FC24BD229F00CE9B14 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FB24BD229F00CE9B14 /* ApiKey.swift */; };
 		905FB9FE24BD262600CE9B14 /* WineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */; };
 		905FBA0024BE9DF900CE9B14 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FB9FF24BE9DF900CE9B14 /* LikeButton.swift */; };
 		905FBA0224BEB81E00CE9B14 /* DislikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */; };
@@ -30,7 +29,6 @@
 		52F8969B701F94CA0CDFE8C3 /* Pods_wineApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wineApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		905FB9F724BCF86200CE9B14 /* bcApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bcApi.swift; sourceTree = "<group>"; };
 		905FB9F924BD12DB00CE9B14 /* Wine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
-		905FB9FB24BD229F00CE9B14 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetailViewController.swift; sourceTree = "<group>"; };
 		905FB9FF24BE9DF900CE9B14 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeButton.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				9094F80324BA7FF60050644F /* ViewController.swift */,
 				905FB9FD24BD262600CE9B14 /* WineDetailViewController.swift */,
 				905FB9F724BCF86200CE9B14 /* bcApi.swift */,
-				905FB9FB24BD229F00CE9B14 /* ApiKey.swift */,
 				905FB9F924BD12DB00CE9B14 /* Wine.swift */,
 				9094F80524BA7FF60050644F /* Main.storyboard */,
 				905FBA0124BEB81E00CE9B14 /* DislikeButton.swift */,
@@ -241,7 +238,6 @@
 				9094F80424BA7FF60050644F /* ViewController.swift in Sources */,
 				905FBA0424BF8F8200CE9B14 /* HomeButtons.swift in Sources */,
 				9094F80024BA7FF60050644F /* AppDelegate.swift in Sources */,
-				905FB9FC24BD229F00CE9B14 /* ApiKey.swift in Sources */,
 				9094F80224BA7FF60050644F /* SceneDelegate.swift in Sources */,
 				905FB9FE24BD262600CE9B14 /* WineDetailViewController.swift in Sources */,
 				905FB9FA24BD12DB00CE9B14 /* Wine.swift in Sources */,

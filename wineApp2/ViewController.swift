@@ -53,13 +53,16 @@ extension ViewController: BarcodeScannerCodeDelegate {
         
         let request = barcodeRequest(barcode: code)
         
-        controller.reset()
+        
         request.getProduct { (wine) in
             DispatchQueue.main.async {
                 controller.dismiss(animated: true, completion: nil)
                 self.showWine(wine)
+                self.hasCapturedCode = false
+                controller.reset()
             }
         }
+        
     }
     
     
