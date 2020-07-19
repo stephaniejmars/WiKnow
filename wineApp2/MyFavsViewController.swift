@@ -11,9 +11,13 @@ import UIKit
 
 class MyFavsViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
         
+    @objc func goHome(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 
     override func viewDidLoad() {
           super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(self.goHome))
           setupTableView()
       }
     
@@ -27,7 +31,6 @@ class MyFavsViewController: UIViewController, UITableViewDelegate,  UITableViewD
     }()
     
     func setupTableView() {
-//        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         tableview.delegate = self
         tableview.dataSource = self
         tableview.register(WineCell.self, forCellReuseIdentifier: "cellId")
@@ -43,9 +46,10 @@ class MyFavsViewController: UIViewController, UITableViewDelegate,  UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //returns 10 cells
-        return 10
-        // let cellCount = Database liked items length?
+
+        let likedWines = Database.allLikedWines()
+        return likedWines.count
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,10 +59,9 @@ class MyFavsViewController: UIViewController, UITableViewDelegate,  UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! WineCell
         cell.backgroundColor = UIColor.white
-//        cell.wineLabel.text = "Day \(indexPath.row+1)"
-        //change to wine names
+
         let likedWines = Database.allLikedWines()
-//        cell.lblBankPayment.text = "(BRIArray[indexPath.row])"
+
         cell.wineLabel.text = "\(likedWines[indexPath.row])"
         return cell
     }

@@ -31,7 +31,7 @@ class WineDetailViewController: UIViewController {
     @IBAction func dislikePressed(_ sender: Any) {
         //call db function
         let dB = Database()
-        dB.addDislikedWine(name: "\(String(describing: wine?.product_name))", isLiked: false)
+        dB.addDislikedWine(name: wine!.product_name, isLiked: false)
         
         //send alert to screen preference has been saved
         let confirmationDislike = UIAlertController(title: ":(", message: "Sorry you didn't like it, your preference has been saved", preferredStyle: .alert)
@@ -47,7 +47,7 @@ class WineDetailViewController: UIViewController {
     @IBAction func likePressed(_ sender: Any) {
         //call db function
         let dB = Database()
-        dB.addLikedWine(name: "\(String(describing: wine?.product_name))", isLiked: true)
+        dB.addLikedWine(name: wine!.product_name, isLiked: true)
         
         //send alert to screen that it has been saved
         let confirmationLike = UIAlertController(title: "Yay!", message: "Your preference has been saved.", preferredStyle: .alert)
@@ -88,9 +88,13 @@ class WineDetailViewController: UIViewController {
         imageView.image = wine?.image
     }
     
-
+    @objc func goHome(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(self.goHome))
         updateForWine()
     }
 

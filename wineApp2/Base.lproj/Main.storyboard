@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="wineApp2" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fLZ-5T-gh6"/>
+                    <navigationItem key="navigationItem" title="Home" id="8Zz-xn-gWw"/>
                     <connections>
                         <outlet property="imageView" destination="D1w-5T-jFY" id="gLG-cr-IcW"/>
                     </connections>
@@ -238,9 +238,11 @@
                         <outlet property="nameLabel" destination="WJV-5c-8pa" id="wAk-N1-nfr"/>
                         <outlet property="preferenceIcon" destination="rhL-VJ-iig" id="Euo-Bz-N4X"/>
                         <outlet property="preferenceLabel" destination="hbF-MQ-yUS" id="to9-Ml-hNH"/>
+                        <segue destination="1gV-xs-uCV" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="cUD-TD-nFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNx-yi-AWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1gV-xs-uCV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1947.826086956522" y="138.58695652173915"/>
         </scene>

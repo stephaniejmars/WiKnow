@@ -123,11 +123,11 @@ struct Database {
         userDefaults.synchronize()
     }
     
-    static func allLikedWines<T>() -> Array<T> {
+    static func allLikedWines() -> [String] {
         let userDefaults = UserDefaults.standard
         var likedArray = userDefaults.array(forKey: Database.likedNamesKey)
-
-        return likedArray 
+        
+        return likedArray as! [String]
 
     }
 

@@ -41,10 +41,12 @@ class ViewController: UIViewController {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let wineDetailVC = storyBoard.instantiateViewController(withIdentifier: "WineDetailViewController") as! WineDetailViewController
             wineDetailVC.wine = wine
+            
             self.navigationController?.pushViewController(wineDetailVC, animated: true)
         }
 
     }
+
 }
 
 extension ViewController: BarcodeScannerCodeDelegate {

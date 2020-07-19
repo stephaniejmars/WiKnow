@@ -23,7 +23,7 @@ class WineCell: UITableViewCell {
     
     let cellView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.purple
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -35,6 +35,8 @@ class WineCell: UITableViewCell {
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -50,10 +52,11 @@ class WineCell: UITableViewCell {
             cellView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
-        wineLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        wineLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+//        wineLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
+//        wineLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         wineLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
-        wineLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true
+        wineLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5).isActive = true
+        wineLabel.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -2).isActive = true
         
     }
     
