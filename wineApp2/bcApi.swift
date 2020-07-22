@@ -15,12 +15,25 @@ enum BarcodeError:Error {
 }
 
 struct barcodeRequest {
+    
     let resourceURL: URL
+    
 
     
     init(barcode:String) {
         let resourceString = "https://api.barcodelookup.com/v2/products?barcode=\(barcode)&formatted=y&key=\(Constant.APIKey)"
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
+        
+        self.resourceURL = resourceURL
+    }
+    
+    init(productName: String) {
+        
+        let urlEncodedNane = productName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        let resourceString = "https://api.barcodelookup.com/v2/products?product-name=\(urlEncodedNane)&formatted=n&key=\(Constant.APIKey)"
+        guard let resourceURL = URL(string: resourceString) else {fatalError()}
+        print(resourceString)
         
         self.resourceURL = resourceURL
     }

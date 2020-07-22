@@ -27,8 +27,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func myFavsPressed(_ sender: Any) {
-        let myFavsVC = MyFavsViewController()
+        let myFavsVC = WineListController(showFavs: true)
 //        myFavsVC.codeDelegate = self
+        navigationController?.pushViewController(myFavsVC, animated: true)
+    }
+    
+    
+    @IBAction func allWinesPressed(_ sender: Any) {
+        let myFavsVC = WineListController(showFavs: false)
+
         navigationController?.pushViewController(myFavsVC, animated: true)
     }
     

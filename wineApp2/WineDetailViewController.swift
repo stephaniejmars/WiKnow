@@ -34,7 +34,7 @@ class WineDetailViewController: UIViewController {
         dB.addDislikedWine(name: wine!.product_name, isLiked: false)
         
         //send alert to screen preference has been saved
-        let confirmationDislike = UIAlertController(title: ":(", message: "Sorry you didn't like it, your preference has been saved", preferredStyle: .alert)
+        let confirmationDislike = UIAlertController(title: "Sad!", message: "Sorry you didn't like it, your preference has been saved", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "Cool", style: .default) { (action) -> Void in
             print("dislikebutton tapped")
@@ -42,6 +42,7 @@ class WineDetailViewController: UIViewController {
         
         confirmationDislike.addAction(ok)
         self.present(confirmationDislike, animated: true, completion: nil)
+        preferenceIcon.image = UIImage(systemName: "xmark")
     }
     
     @IBAction func likePressed(_ sender: Any) {
@@ -58,13 +59,16 @@ class WineDetailViewController: UIViewController {
         
         confirmationLike.addAction(ok)
         self.present(confirmationLike, animated: true, completion: nil)
+        
+        preferenceIcon.image = UIImage(systemName: "suit.heart.fill")
+        
     }
     
     
     
     func updateForWine() {
-        let prevLiked = Database.wasLiked(name: "\(wine?.product_name)")
-        let prevDisliked = Database.wasNotLiked(name: "\(wine?.product_name)")
+        let prevLiked = Database.wasLiked(name: wine!.product_name)
+        let prevDisliked = Database.wasNotLiked(name: wine!.product_name)
         let heartImage = UIImage(systemName: "suit.heart.fill")
         let xImage = UIImage(systemName: "xmark")
 
@@ -81,8 +85,6 @@ class WineDetailViewController: UIViewController {
             brandLabel.text = wine?.brand
         }
         
-//        preferenceIcon.layer.cornerRadius = preferenceIcon.frame.size.width / 2
-//        preferenceIcon.clipsToBounds = true
         
         nameLabel.text = wine?.product_name
         imageView.image = wine?.image
