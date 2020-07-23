@@ -19,7 +19,6 @@ class WineDetailViewController: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -37,12 +36,11 @@ class WineDetailViewController: UIViewController {
         let confirmationDislike = UIAlertController(title: "Sad!", message: "Sorry you didn't like it, your preference has been saved", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "Cool", style: .default) { (action) -> Void in
-            print("dislikebutton tapped")
+            self.preferenceIcon.image = UIImage(systemName: "xmark")
         }
         
         confirmationDislike.addAction(ok)
         self.present(confirmationDislike, animated: true, completion: nil)
-        preferenceIcon.image = UIImage(systemName: "xmark")
     }
     
     @IBAction func likePressed(_ sender: Any) {
@@ -54,16 +52,12 @@ class WineDetailViewController: UIViewController {
         let confirmationLike = UIAlertController(title: "Yay!", message: "Your preference has been saved.", preferredStyle: .alert)
             
         let ok = UIAlertAction(title: "Awesome", style: .default) { (action) -> Void in
-            print("likebutton tapped")
+            self.preferenceIcon.image = UIImage(systemName: "suit.heart.fill")
         }
         
         confirmationLike.addAction(ok)
         self.present(confirmationLike, animated: true, completion: nil)
-        
-        preferenceIcon.image = UIImage(systemName: "suit.heart.fill")
-        
     }
-    
     
     
     func updateForWine() {
@@ -72,7 +66,6 @@ class WineDetailViewController: UIViewController {
         let heartImage = UIImage(systemName: "suit.heart.fill")
         let xImage = UIImage(systemName: "xmark")
 
-        
         if prevLiked == true {
             preferenceIcon.image = heartImage
             preferenceLabel.text = "You have tried this wine and liked it! :) "
@@ -84,8 +77,6 @@ class WineDetailViewController: UIViewController {
         } else {
             brandLabel.text = wine?.brand
         }
-        
-        
         nameLabel.text = wine?.product_name
         imageView.image = wine?.image
     }
