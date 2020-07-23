@@ -41,11 +41,10 @@ class WineListController: UIViewController, UITableViewDelegate,  UITableViewDat
         setupTableView()
         setUpLayout()
         clearPreferences.addTarget(self, action: #selector(clearDB), for: .touchUpInside)
-      }
+    }
     
     
     @IBOutlet var tableview: UITableView! = {
-        
         let tv = UITableView()
         tv.backgroundColor = UIColor.white
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +69,19 @@ class WineListController: UIViewController, UITableViewDelegate,  UITableViewDat
         return button
     }()
     
+    let noWinesLabel: UILabel = {
+       
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.white
+        label.textColor = UIColor.darkGray
+        label.text = "You dont have any wines saved yet"
+        label.textAlignment = .center
+        label.font = UIFont(name: "Trebuchet MS", size: 20)
+        
+        return label
+    }()
+    
     
     func setupTableView() {
         tableview.delegate = self
@@ -80,10 +92,16 @@ class WineListController: UIViewController, UITableViewDelegate,  UITableViewDat
     
     func setUpLayout() {
         
-        
         view.addSubview(clearPreferences)
         view.addSubview(tableview)
-        
+        if wines.isEmpty {
+            view.addSubview(noWinesLabel)
+            noWinesLabel.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 80.0).isActive = true
+            noWinesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10.0).isActive = true
+            noWinesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10.0).isActive = true
+            noWinesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
+            
+        }
         
         clearPreferences.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         clearPreferences.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60.0).isActive = true
@@ -134,15 +152,13 @@ class WineListController: UIViewController, UITableViewDelegate,  UITableViewDat
         
         return view
     }
+    
+
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
-    
-    @objc func clearDB(_ sender: Any) {
-        Database.clearDB()
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showDetailsViewController(forWine: wines[indexPath.row])
@@ -176,4 +192,17 @@ class WineListController: UIViewController, UITableViewDelegate,  UITableViewDat
             tableview.reloadData()
         }
     }
+    
+    @objc func clearDB(_ sender: Any) {
+        Database.clearDB()
+        
+        wines.removeAll()
+        
+        DispatchQueue.main.async {
+            self.viewDidLoad()
+            self.tableview.reloadData()
+        }
+    }
+    
+    
 }

@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addWinePressed(_ sender: Any) {
@@ -28,10 +27,8 @@ class ViewController: UIViewController {
     
     @IBAction func myFavsPressed(_ sender: Any) {
         let myFavsVC = WineListController(showFavs: true)
-//        myFavsVC.codeDelegate = self
         navigationController?.pushViewController(myFavsVC, animated: true)
     }
-    
     
     @IBAction func allWinesPressed(_ sender: Any) {
         let myFavsVC = WineListController(showFavs: false)
@@ -39,9 +36,6 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(myFavsVC, animated: true)
     }
     
-    @IBAction func clearDB(_ sender: Any) {
-        Database.clearDB()
-    }
     
     func showWine(_ wine:Wine) {
         DispatchQueue.main.async {
@@ -63,7 +57,6 @@ extension ViewController: BarcodeScannerCodeDelegate {
         hasCapturedCode = true
         
         let request = barcodeRequest(barcode: code)
-        
         
         request.getProduct { (wine) in
             DispatchQueue.main.async {

@@ -16,7 +16,7 @@ struct Database {
     
     func addLikedWine(name: String, isLiked: Bool) {
         let userDefaults = UserDefaults.standard
-        var likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])// ?? [String]()
+        var likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])
         var dislikedArray = userDefaults.array(forKey: Database.dislikedNamesKey)
         
         let exists = Database.doesExist(name: name)
@@ -26,7 +26,6 @@ struct Database {
             if let index = dislikedArray?.index(where: {$0 as! String == name}) {
                            dislikedArray?.remove(at: index)
             }
-            print("liked wines list: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
                 
             likedNames.append(name)
             userDefaults.set(likedNames, forKey: Database.likedNamesKey)
@@ -39,8 +38,6 @@ struct Database {
 
             userDefaults.set(likedNames, forKey: Database.likedNamesKey)
             userDefaults.synchronize()
-            
-            print("new wine added liked wines list: \(userDefaults.array(forKey: Database.likedNamesKey) as Any)")
         }
         
     
@@ -48,7 +45,7 @@ struct Database {
     
     func addDislikedWine(name: String, isLiked: Bool) {
         let userDefaults = UserDefaults.standard
-        var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])// ?? [String]()
+        var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])
         var likedArray = userDefaults.array(forKey: Database.likedNamesKey)
         
         let exists = Database.doesExist(name: name)
@@ -60,9 +57,6 @@ struct Database {
                 likedArray?.remove(at: index)
             }
 
-            print("liked wines: \(likedArray)")
-            print("disliked wines: \(dislikedNames)")
-            
             dislikedNames.append(name)
             userDefaults.set(likedArray, forKey: Database.likedNamesKey)
             userDefaults.set(dislikedNames, forKey: Database.dislikedNamesKey)
@@ -74,16 +68,14 @@ struct Database {
             
             userDefaults.set(dislikedNames, forKey: Database.dislikedNamesKey)
             userDefaults.synchronize()
-            
-            print("disliked wines: \(userDefaults.array(forKey: Database.dislikedNamesKey) as Any)")
         }
 
     }
     
     static func doesExist(name: String) -> Bool {
         let userDefaults = UserDefaults.standard
-        let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])// ?? [String]()
-        let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])// ?? [String]()
+        let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])
+        let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])
 
         for (_, wineName) in likedNames.enumerated() {
             if name == wineName {
@@ -102,7 +94,7 @@ struct Database {
     
     static func wasLiked(name: String) -> Bool {
             let userDefaults = UserDefaults.standard
-            let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])// ?? [String]()
+            let likedNames = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])
            
             for (_, wineName) in likedNames.enumerated() {
                 if name == wineName {
@@ -115,7 +107,7 @@ struct Database {
     
     static func wasNotLiked(name: String) -> Bool {
             let userDefaults = UserDefaults.standard
-            let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])// ?? [String]()
+            let dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])
 
             for (_, wineName) in dislikedNames.enumerated() {
                 if name == wineName {
@@ -156,8 +148,8 @@ struct Database {
     static func remove(wine: String) {
         
         let userDefaults = UserDefaults.standard
-        var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])// ?? [String]()
-        var likedArray = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])// ?? [String]()
+        var dislikedNames = (userDefaults.array(forKey: Database.dislikedNamesKey) as! [String])
+        var likedArray = (userDefaults.array(forKey: Database.likedNamesKey) as! [String])
         if let index = likedArray.index(where: {$0 as! String == wine}) {
             likedArray.remove(at: index)
         }
@@ -168,6 +160,6 @@ struct Database {
         userDefaults.set(dislikedNames, forKey: Database.dislikedNamesKey)
         userDefaults.synchronize()
     }
-    //end
+    
 }
 

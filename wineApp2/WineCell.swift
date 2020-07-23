@@ -11,11 +11,9 @@ import UIKit
 
 class WineCell: UITableViewCell {
     
-    let pink = UIColor(red: 250.00/255.00, green: 204.00/255.00, blue: 197.00/255.00, alpha: 1)
     let lavender = UIColor(red: 189.00/255.00, green: 160.00/255.00, blue: 189.00/255.00, alpha: 1)
     
     var isFav: Bool = false {
-        
         didSet {
             cellView.backgroundColor = isFav ? .purple : lavender
         }
@@ -23,7 +21,6 @@ class WineCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setupView()
     }
     
@@ -33,7 +30,6 @@ class WineCell: UITableViewCell {
     
     let cellView: UIView = {
         let view = UIView()
-//        view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -66,7 +62,5 @@ class WineCell: UITableViewCell {
         wineLabel.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -2).isActive = true
         
     }
-    
-        
     
 }

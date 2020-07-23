@@ -37,10 +37,7 @@ class HomeButtons: UIButton {
     private func styleButton() {
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont(name: "Trebuchet MS", size: 30)
-//        setTitle("Dislike", for: .normal)
         layer.cornerRadius = 25
-//        layer.borderWidth = 3.0
-//        layer.borderColor = UIColor.darkGray.cgColor
         backgroundColor = UIColor.purple
     }
 }

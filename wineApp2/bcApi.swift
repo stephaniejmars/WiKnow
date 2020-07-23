@@ -33,7 +33,6 @@ struct barcodeRequest {
 
         let resourceString = "https://api.barcodelookup.com/v2/products?product-name=\(urlEncodedNane)&formatted=n&key=\(Constant.APIKey)"
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
-        print(resourceString)
         
         self.resourceURL = resourceURL
     }
